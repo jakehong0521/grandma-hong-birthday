@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/grandma-hong-birthday/static/css/main.ea1455b2.chunk.css",
+    "main.js": "/grandma-hong-birthday/static/js/main.f0bca7a5.chunk.js",
+    "main.js.map": "/grandma-hong-birthday/static/js/main.f0bca7a5.chunk.js.map",
+    "runtime-main.js": "/grandma-hong-birthday/static/js/runtime-main.2963686a.js",
+    "runtime-main.js.map": "/grandma-hong-birthday/static/js/runtime-main.2963686a.js.map",
+    "static/js/2.e53068ab.chunk.js": "/grandma-hong-birthday/static/js/2.e53068ab.chunk.js",
+    "static/js/2.e53068ab.chunk.js.map": "/grandma-hong-birthday/static/js/2.e53068ab.chunk.js.map",
+    "static/js/3.4cfade8b.chunk.js": "/grandma-hong-birthday/static/js/3.4cfade8b.chunk.js",
+    "static/js/3.4cfade8b.chunk.js.map": "/grandma-hong-birthday/static/js/3.4cfade8b.chunk.js.map",
+    "index.html": "/grandma-hong-birthday/index.html",
+    "static/css/main.ea1455b2.chunk.css.map": "/grandma-hong-birthday/static/css/main.ea1455b2.chunk.css.map",
+    "static/js/2.e53068ab.chunk.js.LICENSE.txt": "/grandma-hong-birthday/static/js/2.e53068ab.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2963686a.js",
+    "static/js/2.e53068ab.chunk.js",
+    "static/css/main.ea1455b2.chunk.css",
+    "static/js/main.f0bca7a5.chunk.js"
+  ]
+}
