@@ -1,0 +1,7 @@
+.CardsContainer {
+  background: url('../../static/CardsContainer/cardsContainerBgTile.png');
+  background-repeat: repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
