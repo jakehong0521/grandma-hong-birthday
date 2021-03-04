@@ -10,7 +10,8 @@ import { searchParamKeys } from 'const.js'
 import styles from './CardsContainer.module.css'
 
 // util
-import { useHistory, useLocation } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import useSearchParams from 'hooks/useSearchParams'
 
 export default function CardsContainer(props) {
   const history = useHistory()
@@ -40,15 +41,11 @@ export default function CardsContainer(props) {
         onHide={closeModal}
       />
 
-      {cardDataArr.map(card => (
-        <div className='my-5' key={card.fromText}>
-          <Card {...card} onClick={() => openLetter(card.writer)} />
+      {cardDataArr.map((card, index) => (
+        <div className='my-5' key={card.writer}>
+          <Card {...card} index={index} onClick={() => openLetter(card.writer)} />
         </div>
       ))}
     </div>
   )
-}
-
-function useSearchParams() {
-  return new URLSearchParams(useLocation().search)
 }

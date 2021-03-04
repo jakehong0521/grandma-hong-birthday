@@ -1,0 +1,239 @@
+:root {
+  --bread-color: #7B3F00;
+  --cream-color: #000;
+  --drip-border-color: #eee;
+  --icing-color: #fdfdfd;
+  --icing-highlight: #ddd;
+  --cake-unit: 2.5vmin;
+
+  --candle-stripe-color-1: grey;
+  --candle-stripe-color-2: purple;
+  --candle-border-color: #eee;
+}
+
+.BoxCanvas{
+  position: relative;
+  margin: auto;
+  display: block;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 34);
+}
+
+.Plate {
+  position: absolute;
+  bottom: calc(var(--cake-unit) * 3);
+  width: calc(var(--cake-unit) * 35);
+  height: calc(var(--cake-unit) * 18);
+  background: #BFBFBF;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.CakeSide {
+  position: absolute;
+  top: calc(var(--cake-unit) * 11);
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 18);
+  background: var(--bread-color);
+  border-radius: 0 0 50% 50%;
+  overflow: hidden;
+}
+
+.CakeSide::before {
+  content: '';
+  position: absolute;
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 18);
+  background: var(--cream-color);
+  border-radius: 0 0 50% 50%;
+  top: calc(var(--cake-unit) * (-4));
+}
+
+.CakeSide::after {
+  content: '';
+  position: absolute;
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 18);
+  background: var(--bread-color);
+  border-radius: 0 0 50% 50%;
+  top: calc(var(--cake-unit) * (-6));
+}
+
+.CakeTop {
+  position: absolute;
+  top: calc(var(--cake-unit) * 4);
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 15);
+  background: var(--icing-color);
+  border-radius: 50%;
+  border-bottom: 4px solid var(--icing-highlight);
+}
+
+.Drips {
+  position: absolute;
+  display: flex;
+  width: calc(var(--cake-unit) * 30);
+  height: calc(var(--cake-unit) * 14);
+  top: calc(var(--cake-unit) * 11);
+}
+
+.Drip:nth-child(1) {
+  height: calc(var(--cake-unit) * 10);
+  width: calc(var(--cake-unit) * 4);
+}
+
+.Drip:nth-child(2) {
+  height: calc(var(--cake-unit) * 10);
+  width: calc(var(--cake-unit) * 3);
+}
+
+.Drip:nth-child(3) {
+  height: calc(var(--cake-unit) * 10);
+  width: calc(var(--cake-unit) * 4);
+}
+
+.Drip:nth-child(4) {
+  height: calc(var(--cake-unit) * 12);
+  width: calc(var(--cake-unit) * 5);
+}
+
+.Drip:nth-child(5) {
+  height: calc(var(--cake-unit) * 13);
+  width: calc(var(--cake-unit) * 5);
+}
+
+.Drip:nth-child(6) {
+  height: calc(var(--cake-unit) * 10);
+  width: calc(var(--cake-unit) * 4);
+}
+
+.Drip:nth-child(7) {
+  height: calc(var(--cake-unit) * 12);
+  width: calc(var(--cake-unit) * 3);
+}
+
+.Drip:nth-child(8) {
+  height: calc(var(--cake-unit) * 7);
+  width: calc(var(--cake-unit) * 2);
+}
+
+.Drip {
+  background: var(--icing-color);
+  border: solid 1px var(--drip-border-color);
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
+}
+
+.Candle {
+  background: repeating-linear-gradient(
+    45deg,
+    white,
+    white 4px,
+    var(--candle-stripe-color-1) 4px,
+    var(--candle-stripe-color-1) 6px,
+    white 6px,
+    white 10px,
+    var(--candle-stripe-color-2) 10px,
+    var(--candle-stripe-color-2) 12px
+  );
+  border: solid 1px var(--candle-border-color);
+  border-radius: 10% 10% 20% 20%;
+  height: calc(var(--cake-unit) * 10);
+  position: absolute;
+  transform: translateX(-50%);
+  width: calc(var(--cake-unit) * 1);
+}
+
+.Candle[data-index='1'] {
+  left: 15%;
+  top: 5%;
+}
+
+.Candle[data-index='2'] {
+  left: 25%;
+  top: 15%;
+}
+
+.Candle[data-index='3'] {
+  left: 35%;
+  top: -5%;
+}
+
+.Candle[data-index='4'] {
+  left: 45%;
+  top: 20%;
+}
+
+.Candle[data-index='5'] {
+  left: 55%;
+  top: -10%;
+}
+
+.Candle[data-index='6'] {
+  left: 65%;
+  top: 15%;
+}
+
+.Candle[data-index='7'] {
+  left: 75%;
+  top: -5%;
+}
+
+.Candle[data-index='8'] {
+  left: 85%;
+  top: 5%;
+}
+
+.Candle::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--cake-unit) * (-1));
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(var(--cake-unit) * 0.2);
+  height: calc(var(--cake-unit) * 1);
+  background: black;
+}
+
+.Flame {
+  position: absolute;
+  left: 50%;
+  transform: scale(1) translateX(-50%);
+  top: calc(var(--cake-unit) * (-2.4));
+  height: calc(var(--cake-unit) * 2);
+  width: calc(var(--cake-unit) * 2);
+  background: #F78F4E;
+  border-radius: 50%;
+  border: calc(var(--cake-unit) * 0.3) solid yellow;
+  transition: all 1s;
+}
+
+.Flame::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--cake-unit) * (-1.6));
+  width: 0;
+  height: 0;
+  left: calc(var(--cake-unit) * (-0.3));
+  border-bottom: calc(var(--cake-unit) * 2) solid yellow;
+  border-left: calc(var(--cake-unit) * 1) solid transparent;
+  border-right: calc(var(--cake-unit) * 1) solid transparent;
+}
+
+.Flame::after {
+  content: '';
+  position: absolute;
+  top: calc(var(--cake-unit) * (-1));
+  left: calc(var(--cake-unit) * (-0.1));
+  width: 0; 
+  height: 0; 
+  border-left: calc(var(--cake-unit) * 0.75) solid transparent;
+  border-right: calc(var(--cake-unit) * 0.75) solid transparent;
+  border-bottom: calc(var(--cake-unit) * 1.5) solid #F78F4E;
+}
+
+.Flame.off {
+  opacity: 0;
+}

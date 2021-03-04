@@ -1,7 +1,12 @@
 .CardsContainer {
-  background: url('../../static/CardsContainer/cardsContainerBgTile.png');
+  align-items: center;
+  background-image:
+    radial-gradient(circle at 70% 30%, rgb(210, 233, 225), rgba(210, 233, 225, 0) 55%),
+    radial-gradient(circle at 20% 70%, rgb(255, 255, 189), rgba(255, 255, 189, 0) 55%),
+    url('../../static/CardsContainer/bgDotTile.png'),
+    linear-gradient(#fff 10%, rgba(0, 0, 0, 0));
   background-repeat: repeat;
+  background-size: 10%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }

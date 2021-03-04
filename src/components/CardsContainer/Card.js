@@ -1,30 +1,23 @@
 // style
-import styles from './Card.module.css'
+// import styles from './Card.module.css'
 
 export default function Card(props) {
   /*
     props: {
-      fromText: <string>,
-      envelopeColor: <string>,
-      initial: <string>
+      index: <int>,
       letterTextJSX: <string>,
       onClick: fn(),
-      sealColor: <string>
       writer: <string>
     }
   */
+  const imgSrc = require(`../../static/CardsContainer/card${props.index}.png`).default
+
   return (
     <div
-      className={styles.Envelope}
       onClick={props.onClick}
-      style={{backgroundColor: props.envelopeColor}}
+      style={{width: '60vmin'}}
     >
-      <div className={styles.Seal} style={{background: props.sealColor}}>
-        <div className={styles.Embossed}/>
-        <div className={styles.Initial} style={{color: props.sealColor}}>
-          {props.initial}
-        </div>
-      </div>
+      <img alt={props.writer} className='w-100 border shadow' src={imgSrc}/>
     </div>
   )
 }
