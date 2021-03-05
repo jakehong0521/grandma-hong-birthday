@@ -57,7 +57,7 @@ export default function Firework(props) {
       }}
     >
       <div className={`${styles.BdayMsg} ${props.isBdayMsgVisible && styles.visible}`}>
-        HAPPY<br/>BIRTHDAY<br/>&#10084;
+        HAPPY<br/>BIRTHDAY<br/>&#9825;
       </div>
       <div className={`${styles.ScrollMsg} ${props.isScrollMsgVisible && styles.visible}`}>
         밑으로 스크롤 해주세요

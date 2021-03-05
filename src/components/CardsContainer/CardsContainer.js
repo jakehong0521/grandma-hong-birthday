@@ -1,6 +1,7 @@
 // component
 import Card from './Card'
 import LetterPopup from './LetterPopup'
+import Polaroid from './Polaroid'
 
 // const
 import { cardDataArr } from 'const.js'
@@ -50,6 +51,10 @@ export default function CardsContainer(props) {
           <Card {...card} index={index} onClick={() => openLetter(card.writer)} />
         </div>
       ))}
+
+      <div className='pt-5'>
+        <Polaroid/>
+      </div>
     </div>
   )
 }
