@@ -1,8 +1,8 @@
 :root {
-  --bread-color: #7B3F00;
-  --cream-color: #000;
+  --bread-color: linear-gradient(to right, #fee, #dbb);
+  --cream-color: linear-gradient(to right, rgb(251, 90, 141), rgb(221, 60, 111));
   --drip-border-color: #eee;
-  --icing-color: #fdfdfd;
+  --icing-color: rgb(253, 253, 253);
   --icing-highlight: #ddd;
   --cake-unit: 2.5vmin;
 
@@ -12,24 +12,23 @@
 }
 
 .BoxCanvas{
-  position: relative;
-  margin: auto;
   display: block;
-  margin-top: 8%;
-  margin-bottom: 8%;
-  width: calc(var(--cake-unit) * 30);
   height: calc(var(--cake-unit) * 34);
+  margin: 40% auto 0;
+  position: relative;
+  width: calc(var(--cake-unit) * 30);
 }
 
 .Plate {
   position: absolute;
-  bottom: calc(var(--cake-unit) * 3);
-  width: calc(var(--cake-unit) * 35);
-  height: calc(var(--cake-unit) * 18);
-  background: #BFBFBF;
+  bottom: calc(var(--cake-unit) * 1);
+  width: calc(var(--cake-unit) * 37);
+  height: calc(var(--cake-unit) * 24);
+  background: linear-gradient(150deg, rgb(224, 184, 81) 60%, rgb(174, 134, 31));
   border-radius: 50%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
 }
 
 .CakeSide {
@@ -38,8 +37,7 @@
   width: calc(var(--cake-unit) * 30);
   height: calc(var(--cake-unit) * 18);
   background: var(--bread-color);
-  border-radius: 0 0 50% 50%;
-  overflow: hidden;
+  border-radius: 50%;
 }
 
 .CakeSide::before {
@@ -48,7 +46,7 @@
   width: calc(var(--cake-unit) * 30);
   height: calc(var(--cake-unit) * 18);
   background: var(--cream-color);
-  border-radius: 0 0 50% 50%;
+  border-radius: 50%;
   top: calc(var(--cake-unit) * (-4));
 }
 
@@ -58,18 +56,21 @@
   width: calc(var(--cake-unit) * 30);
   height: calc(var(--cake-unit) * 18);
   background: var(--bread-color);
-  border-radius: 0 0 50% 50%;
+  border-radius: 50%;
   top: calc(var(--cake-unit) * (-6));
 }
 
 .CakeTop {
+  background: var(--icing-color);
+  border-bottom: 4px solid var(--icing-highlight);
+  border-left: 1px solid var(--icing-highlight);
+  border-radius: 50%;
+  border-right: 1px solid var(--icing-highlight);
+  border-top: 2px solid var(--icing-highlight);
   position: absolute;
   top: calc(var(--cake-unit) * 4);
   width: calc(var(--cake-unit) * 30);
   height: calc(var(--cake-unit) * 15);
-  background: var(--icing-color);
-  border-radius: 50%;
-  border-bottom: 4px solid var(--icing-highlight);
 }
 
 .Drips {
@@ -101,21 +102,25 @@
 }
 
 .Drip:nth-child(5) {
+  filter: brightness(0.95);
   height: calc(var(--cake-unit) * 13);
   width: calc(var(--cake-unit) * 5);
 }
 
 .Drip:nth-child(6) {
+  filter: brightness(0.9);
   height: calc(var(--cake-unit) * 10);
   width: calc(var(--cake-unit) * 4);
 }
 
 .Drip:nth-child(7) {
+  filter: brightness(0.85);
   height: calc(var(--cake-unit) * 12);
   width: calc(var(--cake-unit) * 3);
 }
 
 .Drip:nth-child(8) {
+  filter: brightness(0.8);
   height: calc(var(--cake-unit) * 7);
   width: calc(var(--cake-unit) * 2);
 }
@@ -142,48 +147,48 @@
   border-radius: 10% 10% 20% 20%;
   height: calc(var(--cake-unit) * 10);
   position: absolute;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100%);
   width: calc(var(--cake-unit) * 1);
 }
 
 .Candle[data-index='1'] {
-  left: 15%;
-  top: 5%;
+  left: 10%;
+  top: 50%;
 }
 
 .Candle[data-index='2'] {
-  left: 25%;
-  top: 15%;
-}
-
-.Candle[data-index='3'] {
-  left: 35%;
-  top: -5%;
-}
-
-.Candle[data-index='4'] {
-  left: 45%;
+  left: 26%;
   top: 20%;
 }
 
+.Candle[data-index='3'] {
+  left: 42%;
+  top: 10%;
+}
+
+.Candle[data-index='4'] {
+  left: 58%;
+  top: 10%;
+}
+
 .Candle[data-index='5'] {
-  left: 55%;
-  top: -10%;
+  left: 74%;
+  top: 20%;
 }
 
 .Candle[data-index='6'] {
-  left: 65%;
-  top: 15%;
+  left: 90%;
+  top: 50%;
 }
 
 .Candle[data-index='7'] {
-  left: 75%;
-  top: -5%;
+  left: 17%;
+  top: 75%;
 }
 
 .Candle[data-index='8'] {
-  left: 85%;
-  top: 5%;
+  left: 83%;
+  top: 75%;
 }
 
 .Candle::after {
@@ -226,7 +231,7 @@
   content: '';
   position: absolute;
   top: calc(var(--cake-unit) * (-1));
-  left: calc(var(--cake-unit) * (-0.1));
+  left: calc(var(--cake-unit) * (-0.04));
   width: 0; 
   height: 0; 
   border-left: calc(var(--cake-unit) * 0.75) solid transparent;

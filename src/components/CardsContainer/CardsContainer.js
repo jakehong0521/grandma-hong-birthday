@@ -41,6 +41,10 @@ export default function CardsContainer(props) {
         onHide={closeModal}
       />
 
+      <div className='bg-white border mb-5 p-3 shadow' style={{fontSize: '28px'}}>
+        카드를 눌러주세요
+      </div>
+
       {cardDataArr.map((card, index) => (
         <div className='my-5' key={card.writer}>
           <Card {...card} index={index} onClick={() => openLetter(card.writer)} />

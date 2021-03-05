@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react'
-
-// component
-import { Fireworks } from 'fireworks-js'
+import { useState } from 'react'
 
 // style
 import styles from './Cake.module.css'
+import fruitStyles from './Fruit.module.css'
 
 export default function Cake(props) {
   const [candlesLitArr, setCandlesLitArr] = useState([
@@ -17,81 +15,47 @@ export default function Cake(props) {
     true,
     true
   ])
-  const [shouldPopPopper, setShouldPopPopper] = useState(false)
-  const [isBdayMsgVisible, setIsBdayMsgVisible] = useState(false)
-
-  useEffect(() => {
-    if (shouldPopPopper) {
-      const container = document.getElementById('firework-container')
-      const fireworks = new Fireworks({
-        target: container,
-        hue: 60,
-        startDelay: 10,
-        minDelay: 40,
-        maxDelay: 60,
-        speed: 0.5,
-        acceleration: 1.1,
-        friction: 0.9,
-        gravity: 1,
-        particles: 50,
-        trace: 2,
-        explosion: 3,
-        boundaries: {
-          top: container.clientHeight * 1 / 10,
-          bottom: container.clientHeight * 9 / 10,
-          left: container.clientWidth * 1 / 10,
-          right: container.clientWidth * 9 / 10
-        },
-        sound: {
-          enable: false
-        }
-      })
-
-      fireworks.start()
-
-      setTimeout(() => {
-        setIsBdayMsgVisible(true)
-      }, 500)
-    }
-  }, [shouldPopPopper])
 
   function turnOffFlame(index) {
+    if (props.isInstructionVisible) {
+      props.setIsInstructionVisible(false)
+    }
+
     const newArr = [...candlesLitArr]
     newArr[index] = false
     setCandlesLitArr(newArr)
 
     if (!newArr.filter(isLit => isLit).length) {
-      setShouldPopPopper(true)
+      props.setShouldPopPopper(true)
     }
   }
 
-  const brightness = 100 - candlesLitArr.filter(isLit => !isLit).length * 6
+  const brightness = 100 - candlesLitArr.filter(isLit => !isLit).length * 8
 
   return (
     <div className='h-100 position-relative'>
-      <div
-        className='h-100 position-absolute w-100'
-        id='firework-container'
-        style={{left: '0', top: '0', zIndex: `${shouldPopPopper ? 1 : 0}`}}
-      >
-        {isBdayMsgVisible && (
-          <div
-            className='position-absolute'
-            style={{
-              bottom: '20%',
-              left: '50%',
-              transform: 'translateX(-50%)'
-            }}
-          >
-            생일축하드려요!
-          </div>
-        )}
-      </div>
+      {props.isInstructionVisible && (
+        <div
+          className='bg-white p-3 position-absolute rounded shadow'
+          style={{
+            fontSize: '28px',
+            maxWidth: '80vw',
+            left: '50%',
+            top: '10%',
+            transform: 'translateX(-50%)',
+            width: 'fit-content',
+            zIndex: '1'
+          }}
+        >
+          촛불을 눌러 꺼주세요
+        </div>
+      )}
       <div
         className='align-items-center d-flex h-100'
         style={{
+          background: 'linear-gradient(to bottom, #dae2f8, #d6a4a4)',
           filter: `brightness(${brightness}%)`,
-          background: 'pink'
+          transition: 'filter 300ms'
         }}
       >
         <div className={styles.BoxCanvas}>
@@ -102,15 +66,32 @@ export default function Cake(props) {
               <div className={styles.Drip} key={index}/>
             ))}
           </div>
-          <div className={styles.CakeTop}/>
-          {candlesLitArr.map((isCandleLit, index) => (
-            <div className={styles.Candle} key={index} data-index={index + 1}>
+          <div className={styles.CakeTop}>
+            <div
+              className={fruitStyles.Strawberry}
+              style={{left: '47%', top: '50%'}}
+            />
+            <div
+              className={fruitStyles.Blueberry}
+              style={{left: '61%', top: '50%'}}
+            />
+            <div
+              className={fruitStyles.Blueberry}
+              style={{left: '56%', top: '58%'}}
+            />
+            {candlesLitArr.map((isCandleLit, index) => (
               <div
-                className={`${styles.Flame} ${isCandleLit ? styles.on : styles.off}`}
+                className={styles.Candle}
+                data-index={index + 1}
+                key={index}
                 onClick={() => turnOffFlame(index)}
-              />
-            </div>
-          ))}
+              >
+                <div
+                  className={`${styles.Flame} ${isCandleLit ? styles.on : styles.off}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

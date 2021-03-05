@@ -17,7 +17,7 @@ export default function LetterPopup(props) {
       show={props.isOpen}
     >
       <Modal.Header className='border-0' closeButton/>
-      <Modal.Body>
+      <Modal.Body style={{fontSize: '28px', lineHeight: '1.7'}}>
         {props.letterContentJSX}
       </Modal.Body>
     </Modal>

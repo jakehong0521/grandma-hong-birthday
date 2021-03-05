@@ -1,0 +1,37 @@
+.Blueberry {
+  background: radial-gradient(circle at 35% 35%, #bbf 5%, #7598c8 15%, #1f3050);
+  border-radius: 50%;
+  height: calc(var(--cake-unit) * 3);
+  position: absolute;
+  box-shadow: 2px 1px 3px grey;
+  transform: translate(-50%, -50%);
+  width: calc(var(--cake-unit) * 3);
+}
+
+.Strawberry {
+  background-image:
+    radial-gradient(#e0e0e0 20%, transparent 20%),
+    radial-gradient(circle at 80% 20%, #fbbbbb, #f00, #E53935)
+  ;
+  background-size: 10px 10px, auto;
+  background-repeat: repeat, no-repeat;
+  border-radius: 50% 50% 80% 20% / 80% 50% 50% 20% ;
+  height: calc(var(--cake-unit) * 5);
+  position: absolute;
+  box-shadow: 2px 2px 4px grey;
+  transform: translate(-50%, -50%);
+  width: calc(var(--cake-unit) * 5);
+}
+
+.Strawberry:after {
+  border-bottom-left-radius: 50%;
+  background: green;
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 50%, 50% 50%, 50% 0);
+  content: '';
+  height: calc(var(--cake-unit) * 2);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(25%, -25%);
+  width: calc(var(--cake-unit) * 2);
+}

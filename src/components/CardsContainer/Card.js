@@ -1,5 +1,5 @@
 // style
-// import styles from './Card.module.css'
+import styles from './Card.module.css'
 
 export default function Card(props) {
   /*
@@ -14,9 +14,11 @@ export default function Card(props) {
 
   return (
     <div
+      className='position-relative'
       onClick={props.onClick}
-      style={{width: '60vmin'}}
+      style={{width: '60vmin', zIndex: '1'}}
     >
+      <div className={styles.Back}/>
       <img alt={props.writer} className='w-100 border shadow' src={imgSrc}/>
     </div>
   )
